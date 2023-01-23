@@ -1,0 +1,38 @@
+﻿@model List<TaskMVC.Models.Product>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>List of Fruits and Vegetables</h2>
+<hr/>
+
+<div class="row">
+    <div class="col-md-4">
+        <table class="table table-c table-hover">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Edit</th>
+                @*<th>Price</th>
+        <th>Quantity</th>
+        <th>Discount</th>
+        <th>TotalPrice</th>*@
+            </tr>
+
+            @foreach (var p in Model)
+            {
+        <tr>
+            <td>@p.Id</td>
+            <td>@Html.ActionLink(p.Name, "Details", "FruitsAndVegetables", new { id = p.Id }, null)</td>
+            <td>@Html.ActionLink("Edit", "Edit", "FruitsAndVegetables", new { id = p.Id }, new { @Class = "btn btn-info" })</td>
+            @*<td>@p.Price</td>
+        <td>@p.Quantity</td>
+        <td>@p.Discount</td>
+        <td>@p.TotalPrice</td>*@
+        </tr>
+            }
+        </table>
+    </div>
+</div>
+
+

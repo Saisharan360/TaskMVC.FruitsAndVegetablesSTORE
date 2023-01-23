@@ -1,0 +1,54 @@
+﻿@model TaskMVC.Models.Product
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit Items</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="mb-2">
+        @Html.LabelFor(p => p.Id, new { @class = "form-label" })
+        @Html.TextBoxFor(p => p.Id, new { @class = "form-control" })
+        @*@Html.ValidationMessageFor(p => p.Id)*@
+    </div>
+    <div class="mb-2">
+        @Html.LabelFor(p => p.Name, new { @class = "form-label" })
+        @Html.TextBoxFor(p => p.Name, new { @class = "form-control" })
+        @*@Html.ValidationMessageFor(p => p.Name)*@
+    </div>
+    <div class="mb-2">
+        @Html.LabelFor(p => p.Price, new { @class = "form-label" })
+        @Html.TextBoxFor(p => p.Price, new { @class = "form-control" })
+        @*@Html.ValidationMessageFor(p => p.Price)*@
+    </div>
+    <div class="mb-2">
+        @Html.LabelFor(p => p.PackSizeId, new { @class = "form-label" })
+        @Html.DropDownListFor(p => p.PackSizeId, new SelectList(ViewBag.Packs, "Id", "PackSizeName"), "--Select--", new { @class = "form-select" })
+        @*@Html.ValidationMessageFor(p => p.PackSizeId)*@
+    </div>
+    <div class="mb-2">
+        @Html.LabelFor(p => p.Quantity, new { @class = "form-label" })
+        @Html.TextBoxFor(p => p.Quantity, new { @class = "form-control" })
+        @*@Html.ValidationMessageFor(p => p.Quantity)*@
+    </div>
+    <div class="mb-2">
+        @Html.LabelFor(p => p.Discount, new { @class = "form-label" })
+        @Html.TextBoxFor(p => p.Discount, new { @class = "form-control" })
+        @*@Html.ValidationMessageFor(p => p.Discount)*@
+    </div>
+    <div class="mb-2">
+        @Html.LabelFor(p => p.TotalPrice, new { @class = "form-label" })
+        @Html.TextBoxFor(p => p.TotalPrice, new { @class = "form-control" })
+        @*@Html.ValidationMessageFor(p => p.TotalPrice)*@
+    </div>
+    <div class="mb-2">
+        @Html.LabelFor(p => p.CategoryId, new { @class = "form-label" })
+        @Html.DropDownListFor(p => p.CategoryId, new SelectList(ViewBag.categories, "Id", "CategoryName"), "--Select--", new { @class = "form-select" })
+        @Html.ValidationMessageFor(p => p.CategoryId)
+    </div>
+
+    <div class="mt-2">
+        <input type="submit" id="btnsubmit" class="btn btn-primary" value="Update" />
+    </div>
+}

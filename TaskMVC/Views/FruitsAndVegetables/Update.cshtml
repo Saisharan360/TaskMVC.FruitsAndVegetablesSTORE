@@ -1,0 +1,55 @@
+﻿@model TaskMVC.Models.Product
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update Fruits or Vegetables</h2>
+<hr />
+
+@using (Html.BeginForm())
+{
+    <div class="mb-2">
+        @Html.LabelFor(p => p.Name, new { @class = "form-label" })
+        @Html.TextBoxFor(p => p.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.Name)
+    </div>
+    <div class="mb-2">
+        @Html.LabelFor(p => p.Price, new { @class = "form-label" })
+        @Html.TextBoxFor(p => p.Price, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.Price)
+    </div>
+    <div class="mb-2">
+        @Html.LabelFor(p => p.Quantity, new { @class = "form-label" })
+        @Html.TextBoxFor(p => p.Quantity, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.Quantity)
+    </div>
+    <div class="mb-2">
+        @Html.LabelFor(p => p.PackSize, new { @class = "form-label" })
+        @*@Html.DropDownListFor(p => p.PackSizeId, new SelectList(ViewBag.PackSizes, "Id", "PackSizeName"), "--Select--", new { @class = "form-select" })*@
+        @Html.TextBoxFor(p => p.PackSize, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.PackSize)
+    </div>
+
+    <div class="mb-2">
+        @Html.LabelFor(p => p.Discount, new { @class = "form-label" })
+        @Html.TextBoxFor(p => p.Discount, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.Discount)
+    </div>
+    <div class="mb-2">
+        @Html.LabelFor(p => p.TotalPrice, new { @class = "form-label" })
+        @Html.TextBoxFor(p => p.TotalPrice, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.TotalPrice)
+    </div>
+    <div class="mb-2">
+        @Html.LabelFor(p => p.Category, new { @class = "form-label" })
+        @Html.DropDownListFor(p => p.CategoryId, new SelectList(ViewBag.Categories, "Id", "CategoryName"), "--Select--", new { @class = "form-select" })
+        @Html.ValidationMessageFor(p => p.Category)
+    </div>
+    <div class="mt-2">
+        <input type="submit" id="btnsubmit" class="btn btn-primary" value="Update" />
+    </div>
+}
+
+
+
+
